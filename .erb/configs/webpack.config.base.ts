@@ -1,7 +1,3 @@
-/**
- * Base webpack config used across other specific configs
- */
-
 import webpack from 'webpack';
 import TsconfigPathsPlugins from 'tsconfig-paths-webpack-plugin';
 import webpackPaths from './webpack.paths';
@@ -102,7 +98,7 @@ const configuration: webpack.Configuration = {
     // There is no need to add aliases here, the paths in tsconfig get mirrored
     plugins: [new TsconfigPathsPlugins()],
     alias: {
-      '@api': webpackPaths.resolveApp('src/renderer/net'),
+      '@api': webpackPaths.resolveApp('src/renderer/axios'),
       '@views': webpackPaths.resolveApp('src/renderer/views'),
       '@router': webpackPaths.resolveApp('src/renderer/router'),
       '@reducer': webpackPaths.resolveApp('src/renderer/controller/reducer'),
