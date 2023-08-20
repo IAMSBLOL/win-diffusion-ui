@@ -1,5 +1,4 @@
-import { Button } from 'antd'
-// import fs from 'fs'
+import Header from './Header'
 import './HomePage.module.less'
 import { useEffect } from 'react'
 
@@ -9,11 +8,7 @@ const HomePage = () => {
   }, [])
   return (
     <div styleName='HomePage'>
-      <div className="test text-cyan-900">
-        <Button className='btn btn-primary'>
-          123123
-        </Button>
-      </div>
+      <Header />
     </div>
   )
 }
