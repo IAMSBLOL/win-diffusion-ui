@@ -1,15 +1,14 @@
-import './HomePage.module.less'
 import { useEffect } from 'react'
 
-const HomePage = () => {
+const Collection = () => {
   useEffect(() => {
     window.electron.ipcRenderer.sendMessage('ipc-example', 123)
   }, [])
   return (
-    <div styleName='HomePage'>
-     123
+    <div >
+      Collection
     </div>
   )
 }
 
-export default HomePage
+export default Collection

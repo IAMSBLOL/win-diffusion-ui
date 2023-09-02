@@ -15,13 +15,23 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'plugin:react/recommended',
     'eslint:recommended',
-    'plugin:@typescript-eslint/eslint-recommended',
-    'plugin:@typescript-eslint/recommended',
+
 
     'plugin:import/electron',
-    'plugin:import/typescript'
+    'plugin:import/typescript',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+      legacyDecorators: true
+    },
+    // ecmaVersion: '2018',
+    sourceType: 'module',
+    project: './tsconfig.json'
+  },
   plugins: [
     'babel',
     'react',

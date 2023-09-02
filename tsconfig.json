@@ -1,11 +1,14 @@
 {
+
   "compilerOptions": {
     "incremental": true,
     "target": "es2021",
     "module": "commonjs",
     "lib": [
       "dom",
-      "es2021"
+      "es2021",
+      "dom.iterable",
+      "esnext"
     ],
     "jsx": "react-jsxdev",
     "strict": true,
@@ -38,10 +41,12 @@
       ],
     }
   },
+
   "exclude": [
     "test",
     "release/build",
     "release/app/dist",
-    ".erb/dll"
+    ".erb/dll",
+    ".eslintrc.js"
   ]
 }

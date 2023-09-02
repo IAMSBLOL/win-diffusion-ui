@@ -1,7 +1,12 @@
 import React from 'react';
-import { createMemoryRouter } from 'react-router-dom';
+import { createMemoryRouter, Navigate } from 'react-router-dom';
 import {
-  APP_HOME
+  IMAGE_2_IMAGE,
+  IMAGE_2_IMAGE_WIYH_MASKST,
+  INPAINTING,
+  OUTPAINTING,
+  TEXR_2_IMAGE,
+  COLLECTION
 } from './pathNames'
 
 function SuspenseFn (Comp:any) {
@@ -14,14 +19,19 @@ function SuspenseFn (Comp:any) {
 
 const App = React.lazy(() => import('@renderer/container/app'));
 
-const HomePage = React.lazy(() => import('@renderer/views/HomePage'));
-// const HomeN = React.lazy(() => import('@src/views/home/one'));
-// const HomeT = React.lazy(() => import('@src/views/home/two'));
+const Text2Image = React.lazy(() => import('@renderer/views/Text2Image'));
+const Image2Image = React.lazy(() => import('@renderer/views/Image2Image'));
+const Image2ImageWithMask = React.lazy(() => import('@renderer/views/Image2ImageWithMask'));
+const Inpainting = React.lazy(() => import('@renderer/views/Inpainting'));
+const Outpainting = React.lazy(() => import('@renderer/views/Outpainting'));
+const Collection = React.lazy(() => import('@renderer/views/Collection'));
 
 const routes = [
+
   {
-    path: APP_HOME,
-    element: SuspenseFn(HomePage),
+    path: '/',
+    element: <Navigate to={TEXR_2_IMAGE} />,
+
   },
   {
     // path: '/app',
@@ -29,7 +39,30 @@ const routes = [
     strict: true,
     element: SuspenseFn(App),
     children: [
-
+      {
+        path: TEXR_2_IMAGE,
+        element: SuspenseFn(Text2Image),
+      },
+      {
+        path: IMAGE_2_IMAGE,
+        element: SuspenseFn(Image2Image),
+      },
+      {
+        path: IMAGE_2_IMAGE_WIYH_MASKST,
+        element: SuspenseFn(Image2ImageWithMask),
+      },
+      {
+        path: INPAINTING,
+        element: SuspenseFn(Inpainting),
+      },
+      {
+        path: OUTPAINTING,
+        element: SuspenseFn(Outpainting),
+      },
+      {
+        path: COLLECTION,
+        element: SuspenseFn(Collection),
+      },
     ]
   }
 ]
